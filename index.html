@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Свои — друзья по интересам для ребят 13–17</title>
+  <meta name="description" content="Найди друзей, команду для игры или компанию для встречи. Площадка для подростков 13–17 лет, где в анкетах только никнеймы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="#top"><span class="logo-dot"></span>Свои</a>
+  <nav aria-label="Разделы">
+    <a href="#interests">Интересы</a>
+    <a href="#catalog">Анкеты</a>
+    <a href="#teams">Команды</a>
+    <a href="#match">Подбор</a>
+    <a href="#safety">Безопасность</a>
+  </nav>
+  <div class="top-actions">
+    <button class="btn ghost" id="authBtn">Войти</button>
+    <button class="btn" id="favBtn" aria-label="Избранное">♥ <span id="favCount">0</span></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="pill">Для ребят 13–17 лет</p>
+      <h1>Найди свою команду</h1>
+      <p class="lede">Площадка для ребят 13–17 лет. Выбери интерес, найди своих по возрасту и собери состав для игры, музыки или тренировки.</p>
+      <div class="cta">
+        <a class="btn big" href="#catalog">Смотреть анкеты</a>
+        <a class="btn big ghost" href="#match">Подобрать друзей</a>
+      </div>
+      <ul class="facts">
+        <li>В анкетах только никнеймы</li>
+        <li>Ты видишь ребят своей возрастной группы</li>
+        <li>Пожаловаться можно в один клик</li>
+      </ul>
+    </div>
+    <div class="stickers" aria-hidden="true">
+      <div class="sticker s1" style="--c:#3D5AFE"><span class="ava">PF</span><b>PixelFox</b><span class="tag">Minecraft</span><span class="tag">Roblox</span></div>
+      <div class="sticker s2" style="--c:#FF5C8A"><span class="ava">IW</span><b>InkWave</b><span class="tag">Комиксы</span><span class="tag">Скетчи</span></div>
+      <div class="sticker s3" style="--c:#F5B700"><span class="ava">DQ</span><b>DiceQueen</b><span class="tag">Настолки</span></div>
+      <div class="sticker s4" style="--c:#2FD6A0"><span class="ava">SB</span><b>SkateBee</b><span class="tag">Скейт</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="interests">
+    <h2>Выбери свой интерес</h2>
+    <p class="sub">Нажми на интерес, и мы покажем анкеты ребят с такими же увлечениями.</p>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section class="section" id="catalog">
+    <h2>Анкеты</h2>
+    <p class="sub">Это примеры анкет для демонстрации. Все никнеймы вымышленные.</p>
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Поиск по нику или тегу, например Minecraft" aria-label="Поиск по анкетам">
+      <div class="chips" id="ageChips" role="group" aria-label="Возрастная группа">
+        <button class="chip on" data-band="all">Все</button>
+        <button class="chip" data-band="13–15">13–15</button>
+        <button class="chip" data-band="16–17">16–17</button>
+      </div>
+    </div>
+    <div class="chips" id="catChips" role="group" aria-label="Интересы"></div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="section" id="teams">
+    <h2>Команды и встречи</h2>
+    <p class="sub">Не хочешь писать первым? Вступи в команду, где уже собираются ребята с тем же интересом.</p>
+    <div class="grid" id="teamGrid"></div>
+  </section>
+
+  <section class="section match" id="match">
+    <h2>Подбор друзей</h2>
+    <p class="sub">Выбери до трёх интересов, и мы покажем, с кем у тебя больше всего общего.</p>
+    <div class="chips" id="matchChips"></div>
+    <button class="btn big" id="mBtn">Подобрать</button>
+    <div class="grid" id="matchOut" aria-live="polite"></div>
+  </section>
+
+  <section class="section" id="safety">
+    <h2>Как мы заботимся о безопасности</h2>
+    <div class="rules">
+      <div class="rule" style="--c:#3D5AFE"><h3>Только никнейм</h3><p>В анкете нет фамилии, телефона, адреса и фото. Этого достаточно, чтобы познакомиться.</p></div>
+      <div class="rule" style="--c:#FF5C8A"><h3>Своя возрастная группа</h3><p>Ты видишь анкеты ребят 13–15 или 16–17 лет, в зависимости от твоего возраста.</p></div>
+      <div class="rule" style="--c:#F5B700"><h3>Жалоба в один клик</h3><p>Кнопка «Пожаловаться» есть в каждой анкете. Если тебе стало не по себе, нажми её.</p></div>
+      <div class="rule" style="--c:#2FD6A0"><h3>Взрослые в курсе</h3><p>Расскажи родителям или другому взрослому, с кем ты общаешься. На встречи ходи только в людные места.</p></div>
+    </div>
+  </section>
+
+  <section class="section faq" id="faq">
+    <h2>Частые вопросы</h2>
+    <details><summary>Кто может зарегистрироваться?</summary><p>Ребята от 13 до 17 лет. Нужны только никнейм и возраст.</p></details>
+    <details><summary>Что нельзя писать в анкете и в чате?</summary><p>Настоящую фамилию, телефон, адрес, школу и свои фото.</p></details>
+    <details><summary>Что делать, если мне пишут неприятное?</summary><p>Нажми «Пожаловаться» в анкете и расскажи об этом взрослому, которому доверяешь. Ты ничего не нарушил, если тебе стало не по себе.</p></details>
+    <details><summary>Можно ли встречаться офлайн?</summary><p>Только в людных местах и только после разговора с родителями. Если сомневаешься, лучше играйте онлайн.</p></details>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span class="logo"><span class="logo-dot"></span>Свои</span>
+  <p>Площадка, где подростки находят друзей по интересам. © 2026</p>
+</footer>
+
+<dialog id="dProfile"><button class="x" data-close aria-label="Закрыть">✕</button><div id="profileBody"></div></dialog>
+
+<dialog id="dAuth">
+  <button class="x" data-close aria-label="Закрыть">✕</button>
+  <h3>Создай профиль</h3>
+  <p class="sub">Он нужен, чтобы предлагать дружбу, вступать в команды и писать отзывы.</p>
+  <form id="fAuth" class="form">
+    <label>Никнейм (не настоящее имя)<input id="aNick" required maxlength="20" placeholder="Например, NightOwl"></label>
+    <label>Сколько тебе лет<input id="aAge" type="number" required min="13" max="17" placeholder="От 13 до 17"></label>
+    <label class="check"><input type="checkbox" required><span>Я знаю, что нельзя писать здесь телефон, адрес и школу, и что я могу рассказать взрослым, с кем общаюсь</span></label>
+    <button class="btn big" type="submit">Создать профиль</button>
+  </form>
+</dialog>
+
+<dialog id="dReview">
+  <button class="x" data-close aria-label="Закрыть">✕</button>
+  <h3>Отзыв после общения</h3>
+  <form id="fReview" class="form">
+    <div class="stars" id="stars" role="group" aria-label="Оценка">
+      <button type="button" data-star="1">★</button><button type="button" data-star="2">★</button><button type="button" data-star="3">★</button><button type="button" data-star="4">★</button><button type="button" data-star="5">★</button>
+    </div>
+    <label>Как всё прошло?<textarea id="rText" rows="4" required maxlength="300" placeholder="Во что играли, о чём говорили"></textarea></label>
+    <button class="btn big" type="submit">Опубликовать</button>
+  </form>
+</dialog>
+
+<dialog id="dFav">
+  <button class="x" data-close aria-label="Закрыть">✕</button>
+  <h3>Избранное</h3>
+  <div id="favList" class="favlist"></div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
